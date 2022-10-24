@@ -52,7 +52,7 @@ function changeElement() {
     ranIndex = Math.floor(Math.random() * elements.length);
     var ranElement = elements[ranIndex][0]
     docId.innerText = ranElement;
-    textOfSomeSort.innerHTML = "Waiting for input...";
+    textOfSomeSort.innerText = "Waiting for input...";
 }
 
 addEventListener("DOMContentLoaded", changeElement)
