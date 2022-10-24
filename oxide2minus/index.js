@@ -20,7 +20,7 @@ function homepage() {
 function checkAnswer() {
     var ans = document.getElementById("answer");
     if (ans.value.toLowerCase().trim() == elements[ranIndex][1].toLowerCase()) {
-      
+        textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
         setTimeout(changeElement, 1000)
         
@@ -28,7 +28,9 @@ function checkAnswer() {
     }
     else {
         ans.value = "";
+        textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "you got it wrong >:(";
+        console.log("ur wrong lol");
     }
 }
 function changeElement() {
@@ -36,7 +38,8 @@ function changeElement() {
     ranIndex = Math.floor(Math.random() * elements.length);
     var ranElement = elements[ranIndex][0]
     docId.innerText = ranElement;
-    textOfSomeSort.innerText = "";
+    textOfSomeSort = document.getElementById("correct");
+    textOfSomeSort.innerText = "Waiting for input...";
 }
 
 addEventListener("DOMContentLoaded", changeElement)
