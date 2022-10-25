@@ -15,10 +15,11 @@ button {
   background-color: rgb(88, 82, 255);
   color: white;
   display: block;
+  margin-bottom: 1px;
 }
 
 #swap {
-  margin-top: 1px;
+  margin-bottom: 0px;
 }
 
 #answer {
