@@ -45,3 +45,11 @@ button {
   width: 25%;
   text-align: center;
 }
+
+#total {
+  background-color:#808080;
+  color: white;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
