@@ -34,10 +34,12 @@ button {
   background-color: #33a349;
   color: white;
   display: inline-block;
+  width: 50%;
 }
 
 #incor {
   background-color: #ba3b32;
   color: white;
   display: inline-block;
+  width: 50%;
 }
