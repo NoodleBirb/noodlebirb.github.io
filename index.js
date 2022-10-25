@@ -2,7 +2,9 @@ console.log(window.location);
 
 function oxideoneminus() {
     window.location.pathname = "/oxide1minus.html";
-    elements = [
+}
+function setOxideOneMinus() {
+        elements = [
     ["H2PO3", "Dihydrogen Phosphite" ],
     ["H2PO4", "Dihydrogen Phosphate"],
     ["HSO3", "Hydrogen Sulfite"],
@@ -30,6 +32,9 @@ function oxideoneminus() {
     ["BrO4", "Perbromate"]
         ];
 }
+function setOxideTwoMinus() {
+}
+
 function oxidetwominus() {
     window.location.pathname = "/oxide2minus" + window.location.pathname;
 }
