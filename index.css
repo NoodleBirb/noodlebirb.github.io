@@ -30,12 +30,12 @@ button {
   color: white;
 }
 
-#corCount {
+#cor {
   background-color: rgb(92, 255, 136);
   color: white;
 }
 
-#incorCount {
+#incor {
   background-color: rgb(255, 92, 92);
   color: white;
 }
