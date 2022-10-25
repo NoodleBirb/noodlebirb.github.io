@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://noodlebirb.github.io/index.css"></style>
+    <link rel="icon" type="image/png" href="https://noodlebirb.github.io/birb.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <title>Polyatomic stuff 2</title>
+</head>
+<body onload="setOxideTwoMinus();changeElement();">
+    <script src="index.js"></script>
+    <button onclick="homepage()">go to homepage</button>
+
+    <h1>Polyatomics 2-</h1>
+    <form onsubmit="checkAnswer();return false">
+        <label id = "formula">label:</label><br>
+        <input type="text" id="answer" value="" autocomplete="off"><br><br>
+        <input type="submit" id="submit" value="check">
+    </form>
+
+    <p id = "correct">Waiting for input...</p>
+    <div id="count">
+        <div id="cor">
+            <p>Correct:
+            <p id="corCount">0
+        </div>
+        <div id="incor">
+            <p>Incorrect:
+            <p id="incorCount">0
+        </div>
+        <div id="total">
+            <p>Total:
+            <p id="totalCount">0
+        </div>
+        <p><p>
+        <button type="button" onclick="resetCount()">reset count</button>
+        <button type="button" onclick="swap()" id="swap">answer with symbols</button>
+    </div>
+    
+        
+    </p>
+</body>
+
+</html>
