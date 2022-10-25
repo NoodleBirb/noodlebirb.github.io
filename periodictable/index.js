@@ -143,7 +143,6 @@ function checkAnswer() {
         textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][2];
         incor += 1;
         total += 1;
-        setTimeout(changeElement, 1000);
         
         ans.value = "";
     }
