@@ -135,7 +135,7 @@ function homepage() {
 
 function checkAnswer() {
     var ans = document.getElementById("answer");
-    if (ans.value.toLowerCase().trim() == elements[ranIndex][1-ind].toLowerCase()) {
+    if (ans.value.toLowerCase().trim() == elements[ranIndex][1-ind+1].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
         if (secondTry == 0) {
@@ -148,7 +148,7 @@ function checkAnswer() {
     }
     else {
         textOfSomeSort = document.getElementById("correct");
-        textOfSomeSort.innerText = "you got it wrong, go type in " + elements[ranIndex][1-ind];
+        textOfSomeSort.innerText = "you got it wrong, go type in " + elements[ranIndex][1-ind+1];
         if (secondTry == 0) {
             incor += 1;
             total += 1;
@@ -163,7 +163,7 @@ function changeElement() {
     secondTry = 0;
     var docId = document.getElementById("formula");
     ranIndex = Math.floor(Math.random() * elements.length);
-    var ranElement = elements[ranIndex][ind]
+    var ranElement = elements[ranIndex][ind+1]
     docId.innerText = ranElement;
     textOfSomeSort = document.getElementById("correct");
     textOfSomeSort.innerText = "Waiting for input...";
