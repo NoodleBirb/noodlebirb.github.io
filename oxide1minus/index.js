@@ -48,7 +48,7 @@ function checkAnswer() {
     }
     else {
         textOfSomeSort = document.getElementById("correct");
-        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1-ind];
+        textOfSomeSort.innerText = "you got it wrong, go type in " + elements[ranIndex][1-ind];
         incor += 1;
         total += 1;
         
