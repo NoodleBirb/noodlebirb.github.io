@@ -17,6 +17,10 @@ button {
   display: block;
 }
 
+#swap {
+  margin-top: 2px;
+}
+
 #answer {
   width: 25%;
 }
