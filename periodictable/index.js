@@ -128,7 +128,6 @@ var cor = 0;
 var incor = 0;
 var total = 0;
 var ind = 0;
-let elements = [];
 
 function homepage() {
     window.location.pathname = "/index.html"
