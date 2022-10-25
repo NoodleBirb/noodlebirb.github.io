@@ -122,6 +122,13 @@ let elements = [
 ["117", "Ts", "Tennessine"],
 ["118", "Og", "Oganesson"]
 ];
+var secondTry = 0;
+var ranIndex;
+var cor = 0;
+var incor = 0;
+var total = 0;
+var ind = 0;
+let elements = [];
 
 function homepage() {
     window.location.pathname = "/index.html"
@@ -129,33 +136,57 @@ function homepage() {
 
 function checkAnswer() {
     var ans = document.getElementById("answer");
-    if (ans.value.toLowerCase().trim() == elements[ranIndex][2].toLowerCase()) {
+    if (ans.value.toLowerCase().trim() == elements[ranIndex][1-ind].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
-        cor += 1;
-        total += 1;
+        if (secondTry == 0) {
+            cor += 1;
+            total += 1;
+        }
         setTimeout(changeElement, 1000);
         
         ans.value = "";
     }
     else {
         textOfSomeSort = document.getElementById("correct");
-        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][2];
-        incor += 1;
-        total += 1;
+        textOfSomeSort.innerText = "you got it wrong, go type in " + elements[ranIndex][1-ind];
+        if (secondTry == 0) {
+            incor += 1;
+            total += 1;
+        }
+        secondTry = 1;
+
         
         ans.value = "";
     }
 }
 function changeElement() {
+    secondTry = 0;
     var docId = document.getElementById("formula");
     ranIndex = Math.floor(Math.random() * elements.length);
-    var ranElement = elements[ranIndex][1]
+    var ranElement = elements[ranIndex][ind]
     docId.innerText = ranElement;
     textOfSomeSort = document.getElementById("correct");
     textOfSomeSort.innerText = "Waiting for input...";
-    document.getElementById("corCount").innerText = cor + "/" + total;
-    document.getElementById("incorCount").innerText = incor + "/" + total;
+    document.getElementById("corCount").innerText = cor;
+    document.getElementById("incorCount").innerText = incor;
+    document.getElementById("totalCount").innerText = total;
 }
 
 addEventListener("DOMContentLoaded", changeElement)
+
+function resetCount() {
+    total = 0;
+    cor = 0;
+    incor = 0;
+    document.getElementById("corCount").innerText = cor;
+    document.getElementById("incorCount").innerText = incor;
+    document.getElementById("totalCount").innerText = total;
+}
+
+function swap() {
+    ind = 1 - ind;
+    changeElement();
+    let label = ["answer with symbols", "answer with name"];
+    document.getElementById("swap").innerText = label[ind];
+}
