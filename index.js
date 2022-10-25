@@ -1,7 +1,7 @@
 console.log(window.location);
 
 function oxideoneminus() {
-    window.location.pathname = "/oxide1minus" + window.location.pathname;
+    window.location.pathname = "/oxide1minus.html";
     elements = [
     ["H2PO3", "Dihydrogen Phosphite" ],
     ["H2PO4", "Dihydrogen Phosphate"],
