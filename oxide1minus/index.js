@@ -51,7 +51,6 @@ function checkAnswer() {
         textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1-ind];
         incor += 1;
         total += 1;
-        setTimeout(changeElement, 1000);
         
         ans.value = "";
     }
