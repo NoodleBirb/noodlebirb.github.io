@@ -66,7 +66,7 @@ function oxidethreeminus() {
 }
 
 function periodic() {
-    window.location.pathname = "/periodictable" + window.location;
+    window.location.pathname = "/periodictable/index.html";
 }
 var ranIndex;
 var cor = 0;
