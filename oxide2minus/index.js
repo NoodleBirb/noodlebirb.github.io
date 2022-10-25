@@ -1,3 +1,6 @@
+var cor = 0;
+var incor = 0;
+var total = 0;
 var ranIndex;
 var textOfSomeSort = document.getElementById("correct");
 let elements = [
