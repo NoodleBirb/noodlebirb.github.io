@@ -2,6 +2,7 @@ var ranIndex;
 var cor = 0;
 var incor = 0;
 var total = 0;
+var ind = 0;
 let elements = [
     ["H2PO3", "Dihydrogen Phosphite" ],
     ["H2PO4", "Dihydrogen Phosphate"],
@@ -36,7 +37,7 @@ function homepage() {
 
 function checkAnswer() {
     var ans = document.getElementById("answer");
-    if (ans.value.toLowerCase().trim() == elements[ranIndex][1].toLowerCase()) {
+    if (ans.value.toLowerCase().trim() == elements[ranIndex][1-ind].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
         cor += 1;
@@ -47,7 +48,7 @@ function checkAnswer() {
     }
     else {
         textOfSomeSort = document.getElementById("correct");
-        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1];
+        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1-ind];
         incor += 1;
         total += 1;
         setTimeout(changeElement, 1000);
@@ -58,7 +59,7 @@ function checkAnswer() {
 function changeElement() {
     var docId = document.getElementById("formula");
     ranIndex = Math.floor(Math.random() * elements.length);
-    var ranElement = elements[ranIndex][0]
+    var ranElement = elements[ranIndex][ind]
     docId.innerText = ranElement;
     textOfSomeSort = document.getElementById("correct");
     textOfSomeSort.innerText = "Waiting for input...";
@@ -68,3 +69,13 @@ function changeElement() {
 }
 
 addEventListener("DOMContentLoaded", changeElement)
+
+function resetTotal() {
+    total = 0;
+    cor = 0;
+    incor = 0;
+}
+
+function swap() {
+    ind = 1 - ind;
+}
