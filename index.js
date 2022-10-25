@@ -1,4 +1,5 @@
 console.log(window.location);
+var secondTry = 0;
 
 function oxideoneminus() {
     window.location.pathname = "/oxide1minus.html";
@@ -62,8 +63,10 @@ function checkAnswer() {
     if (ans.value.toLowerCase().trim() == elements[ranIndex][1-ind].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
-        cor += 1;
-        total += 1;
+        if (secondTry == 0) {
+            cor += 1;
+            total += 1;
+        }
         setTimeout(changeElement, 1000);
         
         ans.value = "";
@@ -71,6 +74,7 @@ function checkAnswer() {
     else {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "you got it wrong, go type in " + elements[ranIndex][1-ind];
+        secondTry = 1;
         incor += 1;
         total += 1;
         
@@ -78,6 +82,7 @@ function checkAnswer() {
     }
 }
 function changeElement() {
+    secondTry = 0;
     var docId = document.getElementById("formula");
     ranIndex = Math.floor(Math.random() * elements.length);
     var ranElement = elements[ranIndex][ind]
