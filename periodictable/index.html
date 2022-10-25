@@ -9,27 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
     <title>Periodic table stuff</title>
 </head>
-<body>
+<body onload="changeElement();">
     <script src="index.js"></script>
     <button onclick="homepage()">go to homepage</button>
 
-    <h1>Periodic table (all of em)</h1>
+    <h1>Periodic table</h1>
     <form onsubmit="checkAnswer();return false">
         <label id = "formula">label:</label><br>
-        <input type="text" id="answer" value=""><br><br>
+        <input type="text" id="answer" value="" autocomplete="off"><br><br>
         <input type="submit" id="submit" value="check">
     </form>
+
     <p id = "correct">Waiting for input...</p>
     <div id="count">
         <div id="cor">
             <p>Correct:
-            <p id="corCount">0/0
+            <p id="corCount">0
         </div>
         <div id="incor">
             <p>Incorrect:
-            <p id="incorCount">0/0
+            <p id="incorCount">0
         </div>
+        <div id="total">
+            <p>Total:
+            <p id="totalCount">0
+        </div>
+        <p><p>
+        <button type="button" onclick="resetCount()">reset count</button>
     </div>
+    
         
     </p>
 </body>
