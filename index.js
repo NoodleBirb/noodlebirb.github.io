@@ -57,21 +57,6 @@ function setOxideThreeMinus() {
     ];
 }
 
-function setPeriodicTable() {
-    elements = [
-    ["HPO3", "Hydrogen Phosphite" ],
-    ["HPO4", "Hydrogen Phosphate"],
-    ["SO3", "Sulfite"],
-    ["SO4", "Sulfate"],
-    ["C2O4", "Oxalate"],
-    ["S2O4", "Thiosulfate"],
-    ["SiO3", "Silicate"],
-    ["CrO4", "Chromate"],
-    ["Cr2O7", "Dichromate"],
-    ["CO3", "Carbonate"]
-    ];
-}
-
 function oxidetwominus() {
     window.location.pathname = "/oxide2minus.html";
 }
@@ -81,7 +66,7 @@ function oxidethreeminus() {
 }
 
 function periodic() {
-    window.location.pathname = "/periodictable.html";
+    window.location.pathname = "/periodictable" + window.location;
 }
 var ranIndex;
 var cor = 0;
