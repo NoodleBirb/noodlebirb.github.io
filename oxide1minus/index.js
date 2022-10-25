@@ -78,4 +78,5 @@ function resetTotal() {
 
 function swap() {
     ind = 1 - ind;
+    changeElement();
 }
