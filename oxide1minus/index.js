@@ -62,8 +62,8 @@ function changeElement() {
     docId.innerText = ranElement;
     textOfSomeSort = document.getElementById("correct");
     textOfSomeSort.innerText = "Waiting for input...";
-    document.getElementById("corCount").innerTEXT = cor + "/" + total;
-    document.getElementById("incorCount").innerTEXT = incor + "/" + total;
+    document.getElementById("corCount").innerText = cor + "/" + total;
+    document.getElementById("incorCount").innerText = incor + "/" + total;
 }
 
 addEventListener("DOMContentLoaded", changeElement)
