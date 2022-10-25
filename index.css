@@ -14,12 +14,7 @@ button {
   cursor: pointer;
   background-color: rgb(88, 82, 255);
   color: white;
-  display: block;
-  margin-bottom: 1px;
-}
-
-#swap {
-  margin-bottom: 0px;
+  display: inline-block;
 }
 
 #answer {
@@ -28,6 +23,7 @@ button {
 
 #submit {
   border: none;
+  display: inline-block;
   text-align: center;
   text-decoration: none;
   font-size: 100%;
