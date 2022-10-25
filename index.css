@@ -31,13 +31,13 @@ button {
 }
 
 #cor {
-  background-color: rgb(92, 255, 136);
+  background-color: #33a349;
   color: white;
   display: inline-block;
 }
 
 #incor {
-  background-color: rgb(255, 92, 92);
+  background-color: #ba3b32;
   color: white;
   display: inline-block;
 }
