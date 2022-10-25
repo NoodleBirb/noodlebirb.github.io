@@ -82,4 +82,6 @@ function resetCount() {
 function swap() {
     ind = 1 - ind;
     changeElement();
+    let label = ["answer with symbols", "answer with name"];
+    document.getElementById("swap").innerText = label[ind];
 }
