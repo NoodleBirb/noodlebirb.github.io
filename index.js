@@ -5,7 +5,7 @@ function oxideoneminus() {
     window.location.pathname = "/oxide1minus.html";
 }
 function setOxideOneMinus() {
-        elements = [
+    elements = [
     ["H2PO3", "Dihydrogen Phosphite" ],
     ["H2PO4", "Dihydrogen Phosphate"],
     ["HSO3", "Hydrogen Sulfite"],
@@ -34,18 +34,30 @@ function setOxideOneMinus() {
         ];
 }
 function setOxideTwoMinus() {
+    elements = [
+    ["HPO3", "Hydrogen Phosphite" ],
+    ["HPO4", "Hydrogen Phosphate"],
+    ["SO3", "Sulfite"],
+    ["SO4", "Sulfate"],
+    ["C2O4", "Oxalate"],
+    ["S2O4", "Thiosulfate"],
+    ["SiO3", "Silicate"],
+    ["CrO4", "Chromate"],
+    ["Cr2O7", "Dichromate"],
+    ["CO3", "Carbonate"]
+    ];
 }
 
 function oxidetwominus() {
-    window.location.pathname = "/oxide2minus" + window.location.pathname;
+    window.location.pathname = "/oxide2minus.html";
 }
 
 function oxidethreeminus() {
-    window.location.pathname = "/oxide3minus" + window.location.pathname;
+    window.location.pathname = "/oxide3minus.html";
 }
 
 function periodic() {
-    window.location.pathname = "/periodictable" + window.location.pathname;
+    window.location.pathname = "/periodictable.html";
 }
 var ranIndex;
 var cor = 0;
