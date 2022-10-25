@@ -10,3 +10,7 @@ function oxidetwominus() {
 function oxidethreeminus() {
     window.location.pathname = "/oxide3minus" + window.location.pathname;
 }
+
+function periodic() {
+    window.location.pathname = "/periodictable" + window.location.pathname;
+}
