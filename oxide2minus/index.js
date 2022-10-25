@@ -22,15 +22,20 @@ function checkAnswer() {
     if (ans.value.toLowerCase().trim() == elements[ranIndex][1].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
-        setTimeout(changeElement, 1000)
+        cor += 1;
+        total += 1;
+        setTimeout(changeElement, 1000);
         
         ans.value = "";
     }
     else {
-        ans.value = "";
         textOfSomeSort = document.getElementById("correct");
-        textOfSomeSort.innerText = "you got it wrong >:(";
-        console.log("ur wrong lol");
+        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1];
+        incor += 1;
+        total += 1;
+        setTimeout(changeElement, 1000);
+        
+        ans.value = "";
     }
 }
 function changeElement() {
@@ -40,6 +45,8 @@ function changeElement() {
     docId.innerText = ranElement;
     textOfSomeSort = document.getElementById("correct");
     textOfSomeSort.innerText = "Waiting for input...";
+    document.getElementById("corCount").innerText = cor + "/" + total;
+    document.getElementById("incorCount").innerText = incor + "/" + total;
 }
 
 addEventListener("DOMContentLoaded", changeElement)
