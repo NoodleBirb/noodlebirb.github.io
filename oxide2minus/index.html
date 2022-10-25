@@ -17,9 +17,19 @@
     <form onsubmit="checkAnswer();return false">
         <label id = "formula">label:</label><br>
         <input type="text" id="answer" value=""><br><br>
-        <input type="submit" id="submit">
+        <input type="submit" id="submit" value="check">
     </form>
-    <p id = "correct">
+    <p id = "correct">Waiting for input...</p>
+    <div id="count">
+        <div id="cor">
+            <p>Correct:
+            <p id="corCount">0/0
+        </div>
+        <div id="incor">
+            <p>Incorrect:
+            <p id="incorCount">0/0
+        </div>
+    </div>
         
     </p>
 </body>
