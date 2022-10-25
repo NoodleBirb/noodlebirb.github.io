@@ -16,13 +16,20 @@ function checkAnswer() {
     if (ans.value.toLowerCase().trim() == elements[ranIndex][1].toLowerCase()) {
         textOfSomeSort = document.getElementById("correct");
         textOfSomeSort.innerText = "Correct!!!";
-        setTimeout(changeElement, 1000)
+        cor += 1;
+        total += 1;
+        setTimeout(changeElement, 1000);
         
         ans.value = "";
     }
     else {
+        textOfSomeSort = document.getElementById("correct");
+        textOfSomeSort.innerText = "you got it wrong, it should've been " + elements[ranIndex][1];
+        incor += 1;
+        total += 1;
+        setTimeout(changeElement, 1000);
+        
         ans.value = "";
-        textOfSomeSort.innerText = "you got it wrong >:(";
     }
 }
 function changeElement() {
@@ -30,7 +37,10 @@ function changeElement() {
     ranIndex = Math.floor(Math.random() * elements.length);
     var ranElement = elements[ranIndex][0]
     docId.innerText = ranElement;
-    textOfSomeSort.innerText = "";
+    textOfSomeSort = document.getElementById("correct");
+    textOfSomeSort.innerText = "Waiting for input...";
+    document.getElementById("corCount").innerText = cor + "/" + total;
+    document.getElementById("incorCount").innerText = incor + "/" + total;
 }
 
 addEventListener("DOMContentLoaded", changeElement)
