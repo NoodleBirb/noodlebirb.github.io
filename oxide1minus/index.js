@@ -70,10 +70,13 @@ function changeElement() {
 
 addEventListener("DOMContentLoaded", changeElement)
 
-function resetTotal() {
+function resetCount() {
     total = 0;
     cor = 0;
     incor = 0;
+    document.getElementById("corCount").innerText = cor;
+    document.getElementById("incorCount").innerText = incor;
+    document.getElementById("totalCount").innerText = total;
 }
 
 function swap() {
