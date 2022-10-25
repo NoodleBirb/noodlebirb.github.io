@@ -1,7 +1,7 @@
 var ranIndex;
-global cor = 0;
-global incor = 0;
-global total = 0;
+var cor = 0;
+var incor = 0;
+var total = 0;
 let elements = [
     ["H2PO3", "Dihydrogen Phosphite" ],
     ["H2PO4", "Dihydrogen Phosphate"],
