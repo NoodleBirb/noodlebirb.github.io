@@ -16,18 +16,22 @@
     <h1>Polyatomics 1-</h1>
     <form onsubmit="checkAnswer();return false">
         <label id = "formula">label:</label><br>
-        <input type="text" id="answer" value=""><br><br>
+        <input type="text" id="answer" value="" autocorrect="off"><br><br>
         <input type="submit" id="submit" value="check">
     </form>
     <p id = "correct">Waiting for input...</p>
     <div id="count">
         <div id="cor">
             <p>Correct:
-            <p id="corCount">0/0
+            <p id="corCount">0
         </div>
         <div id="incor">
             <p>Incorrect:
-            <p id="incorCount">0/0
+            <p id="incorCount">0
+        </div>
+        <div id="total">
+            <p>Total:
+            <p id="total">0
         </div>
     </div>
         
