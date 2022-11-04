@@ -40,7 +40,7 @@ function setOxideTwoMinus() {
     ["SO3", "Sulfite"],
     ["SO4", "Sulfate"],
     ["C2O4", "Oxalate"],
-    ["S2O4", "Thiosulfate"],
+    ["S2O3", "Thiosulfate"],
     ["SiO3", "Silicate"],
     ["CrO4", "Chromate"],
     ["Cr2O7", "Dichromate"],
