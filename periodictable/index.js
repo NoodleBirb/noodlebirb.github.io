@@ -101,7 +101,7 @@ let elements = [
 ["96", "Cm", "Curium"],
 ["97", "Bk", "Berkelium"],
 ["98", "Cf", "Californium"],
-["99", "Es", "Ensteinium"],
+["99", "Es", "Einsteinium"],
 ["100", "Fm", "Fermium"],
 ["101", "Md", "Mendelevium"],
 ["102", "No", "Nobelium"],
