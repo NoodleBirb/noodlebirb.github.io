@@ -1,0 +1,10 @@
+body {
+    font-style: oblique;
+    text-align: center;
+}
+html {
+    background-color: rgb(112, 122, 122);
+}
+#chapter {
+    width: 20px;
+}
