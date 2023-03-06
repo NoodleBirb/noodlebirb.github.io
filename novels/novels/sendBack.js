@@ -10,7 +10,7 @@ function nextPage() {
     for (let i = 0; i < url.length; i++) {
         if (url.charAt(i) == '.') dots++;
         if (dots == 2) {
-            begin = i;
+            begin = i + 3;
         }
         if (dots == 3) {
             end = i;
