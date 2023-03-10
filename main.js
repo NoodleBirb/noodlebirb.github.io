@@ -5,3 +5,4 @@
 	</p><br class="svelte-1by6210"/> 
 	<a href="https://noodlebirb.github.io/novels/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">← Novels</span></span></a>    
 	<a href="https://noodlebirb.github.io/chemstudy/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">ChemStudy →</span></span></a>`,I(t,"class","bc-true-center bc-text-align svelte-1by6210")},m(n,o){C(n,t,o)},p:f,i:f,o:f,d(n){n&&L(t)}}}class U extends Q{constructor(t){super(),J(this,t,null,R,j,{})}}new U({target:document.getElementById("app")});
+/**/
