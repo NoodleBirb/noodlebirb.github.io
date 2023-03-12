@@ -1,5 +1,5 @@
 function goBack() {
-    window.location.pathname = "";
+    window.location.pathname = "novels/";
 }
 function nextPage() {
     var url = window.location.href;
