@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="https://classicmc-studios.github.io/bc.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+</head>
+
+<body  onload="onOpen()">
+    <a href="https://noodlebirb.github.io">
+        <button class="bc-m-10 bs-absolute">Home</button>
+    </a>
+    
+    <div class="bc-text-align">
+        <H1 id="GPA">
+            GPA: ?
+        </H1>
+
+        <br>
+        <select id="wOrUw" onchange="calcGPA()">
+            <option value="W" disabled selected>Select your option</option>
+            <option value="W" >Weighted</option>
+            <option value="U">Unweighted</option>
+        </select>
+
+        <br>
+        <br>
+        
+        <input id="class" class="bc-p-5" placeholder="Enter the Class"/>
+        <input id="letter" class="bc-p-5 bc-text-align" placeholder="Grade"/>
+
+        <br>
+
+        <select id="classType" placeholder="Pick Type">
+            <option value="" disabled selected>Select your option</option>
+            <option value="A">Academic</option>
+            <option value="H">Honor</option>
+            <option value="AP">AP/DE</option>
+        </select>
+
+        <br>
+        <br>
+        <input type="submit" id="submit" value="Submit" onclick="addRow()"/>
+
+        <br>
+        <br>
+        
+
+        <table id="classList" class="center">
+            <th>
+                Class
+            </th>
+            <th>
+                Grade
+            </th>
+            <th>
+                Type
+            </th>
+            
+
+        </table>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
