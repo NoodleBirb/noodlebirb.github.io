@@ -1,4 +1,5 @@
 
+
 const gradeValuesWeighted = [
     {"value": "4.3", grade: "A+"}, 
     {"value": "4.0", grade: "A"}, 
@@ -42,6 +43,8 @@ function setGPA(val) {
 }
 
 function calcGPA() {
+
+    console.log(localStorage);
 
     var table = document.getElementById("classList");
     
@@ -95,11 +98,10 @@ function addRow() {
     if (!validType.includes(typeClass)) {
         return null;
     }
-    var index = table.rows.length;
-
+    var index = "a" + Math.random().toString(36).slice(2);
     // Create an empty <tr> element and add it to the 1st position of the table:
     var row = table.insertRow(-1);
-    row.id = index;
+ //   row.id = index;
     row.value = typeClass;
 
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
@@ -117,15 +119,13 @@ function addRow() {
     let storedArray = [cell1.innerHTML, cell2.innerHTML, cell3.innerHTML, cell4.innerHTML, index];
 
     localStorage.setItem(index, JSON.stringify(storedArray));
-
     calcGPA();
 }
 
 function deleteRow(rowid)  {   
-    var row = document.getElementById(rowid);
-    row.parentNode.removeChild(row);
+    rowid.parentNode.removeChild(rowid);
 
-    localStorage.removeItem(rowid);
+    localStorage.removeItem(rowid.id);
     calcGPA();
 }
 
@@ -151,8 +151,6 @@ function onOpen() {
         cell3.innerHTML = storedArray[2];
         cell4.innerHTML = storedArray[3];
         row.id = storedArray[4];
-
-        console.log(table);
     }
 
     calcGPA();
