@@ -75,6 +75,7 @@ function calcGPA() {
         if (weighted === "W") {
 
             let type = table.rows[i].value;
+            console.log(type);
             if (type === "H") num += 0.5;
             else if (type === "AP") num += 1.0;
         }
@@ -136,21 +137,26 @@ function onOpen() {
     let allKeys = Object.keys(localStorage);
 
     for (let i = 0; i < allKeys.length; i++) {
-        var row = table.insertRow(-1);
+        var row = table.insertRow(-1); // Insert a new row
         
 
-        var storedArray = JSON.parse(localStorage.getItem(allKeys[i]));
+        var storedArray = JSON.parse(localStorage.getItem(allKeys[i])); // Acquire the array of data from localStorage
 
+        // Insert all the cells into the row
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
 
+        // Assign values to each of the cells
         cell1.innerHTML = storedArray[0];
         cell2.innerHTML = storedArray[1];
         cell3.innerHTML = storedArray[2];
         cell4.innerHTML = storedArray[3];
+
+        // Give the row an ID and a Value based on data from the "storedArray"
         row.id = storedArray[4];
+        row.value = storedArray[2];
     }
 
     calcGPA();
