@@ -102,7 +102,7 @@ function addRow() {
     var index = "a" + Math.random().toString(36).slice(2);
     // Create an empty <tr> element and add it to the 1st position of the table:
     var row = table.insertRow(-1);
- //   row.id = index;
+    row.id = index;
     row.value = typeClass;
 
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
