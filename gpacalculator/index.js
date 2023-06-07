@@ -125,9 +125,6 @@ function addRow() {
         currentData = getCookie("data") // Get data stored in cookie
         cookieValue = JSON.parse(currentData) // parse the data
 
-        console.log (currentData)
-        console.log(cookieValue)
-
         cookieValue.push(storedArray)
 
         setCookie("data", JSON.stringify(cookieValue), 10000)
@@ -138,16 +135,17 @@ function addRow() {
         setCookie ("data", JSON.stringify(arr), 10000)
     }
 
-    console.log(document.cookie)
     calcGPA();
 }
 
 function deleteRow(rowid)  {   
     rowid.parentNode.removeChild(rowid);
 
+    // Parse the cookie data
     let allData = JSON.parse(getCookie("data"))
 
     for (let i = 0; i < allData.length; i++) {
+        // Find the row that matches the id and remove it via splicing.
         if (allData[i][4] === rowid.id) {
             allData.splice(i, 1)
             setCookie("data", JSON.stringify(allData), 10000)
@@ -160,13 +158,13 @@ function onOpen() {
     // Find a <table> element with id="classList":
     var table = document.getElementById("classList");
 
-   // let allKeys = Object.keys(localStorage);
-
+    // get the 2D array object from the cookie
     let allData = JSON.parse(getCookie("data"))
 
     for (let i = 0; i < allData.length; i++) {
         var row = table.insertRow(-1); // Insert a new row
         
+        // acquire one row from the parsed cookie
         var storedArray = allData[i]
         // Insert all the cells into the row
         var cell1 = row.insertCell(0);
@@ -188,6 +186,8 @@ function onOpen() {
     calcGPA();
 }
 
+
+// W3 schools magic
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -195,6 +195,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+// W3 schools magic x2
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
