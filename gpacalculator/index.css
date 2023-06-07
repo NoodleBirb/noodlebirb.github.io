@@ -1,26 +1,19 @@
-#class {
-    width: 200px;
-
-}
-
-#letter {
-    width: 65px;
+.table-wrap {
+    overflow-y: scroll;
+    height: 300px;
 }
 
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
+
+#classList td {
+    border-width: 4px
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+#classList th {
+    border-width: 4px
+    
 }
 
-footer {
-    position: absolute;
-    bottom: 2px;
-    text-align: center;
-    width: 100%;
+#table-headers {
+    column-width: 10%;
 }

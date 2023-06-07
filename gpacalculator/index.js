@@ -44,8 +44,6 @@ function setGPA(val) {
 
 function calcGPA() {
 
-    console.log(localStorage);
-
     var table = document.getElementById("classList");
     
     if (table.rows.length - 1 == 0) {
@@ -55,6 +53,7 @@ function calcGPA() {
 
     var total = 0.0;
     var count = table.rows.length;
+
     for (let i = 1; i < count; i++) {
 
         let weighted = document.getElementById("wOrUw").value;
@@ -62,20 +61,23 @@ function calcGPA() {
 
         // acquire value associated with grade and set it to a value
         let setGrade = table.rows[i].cells[1].innerHTML;
-        let obj;
+        var num = 0.0;
+        
         if (weighted === "W") {
-            obj = gradeValuesWeighted.find(({ grade }) => grade === setGrade);
+            var obj = gradeValuesWeighted.find(({ grade }) => grade === setGrade);
         }
         else {
-            obj = gradeValuesUnweighted.find(({ grade }) => grade === setGrade);
+            var obj = gradeValuesUnweighted.find(({ grade }) => grade === setGrade);
         }
-        let num = parseFloat(obj.value);
+
+        try {
+            num = parseFloat(obj.value);
+        } catch (TypeError) {}
 
         // Check for type of class and assign a bonus weight based upon it
         if (weighted === "W") {
 
             let type = table.rows[i].value;
-            console.log(type);
             if (type === "H") num += 0.5;
             else if (type === "AP") num += 1.0;
         }
@@ -83,7 +85,7 @@ function calcGPA() {
         // add the value found to num
         total += num;
     }
-    setGPA(Math.round((total / (count - 1) + Number.EPSILON) * 100) / 100);
+    setGPA(Math.round((total / (count - 2) + Number.EPSILON) * 100) / 100);
 }
 
 function addRow() {
@@ -115,18 +117,42 @@ function addRow() {
     cell1.innerHTML = glass;
     cell2.innerHTML = letter;
     cell3.innerHTML = typeClass;
-    cell4.innerHTML = '<input type="button" value="X" onclick="deleteRow(' + index + ')"/>';
+    cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm" onclick="deleteRow(' + index + ')"/>';
 
     let storedArray = [cell1.innerHTML, cell2.innerHTML, cell3.innerHTML, cell4.innerHTML, index];
 
-    localStorage.setItem(index, JSON.stringify(storedArray));
+    if (getCookie("data") != "") {
+        currentData = getCookie("data") // Get data stored in cookie
+        cookieValue = JSON.parse(currentData) // parse the data
+
+        console.log (currentData)
+        console.log(cookieValue)
+
+        cookieValue.push(storedArray)
+
+        setCookie("data", JSON.stringify(cookieValue), 10000)
+    }
+
+    else {
+        arr = [storedArray]
+        setCookie ("data", JSON.stringify(arr), 10000)
+    }
+
+    console.log(document.cookie)
     calcGPA();
 }
 
 function deleteRow(rowid)  {   
     rowid.parentNode.removeChild(rowid);
 
-    localStorage.removeItem(rowid.id);
+    let allData = JSON.parse(getCookie("data"))
+
+    for (let i = 0; i < allData.length; i++) {
+        if (allData[i][4] === rowid.id) {
+            allData.splice(i, 1)
+            setCookie("data", JSON.stringify(allData), 10000)
+        }
+    }
     calcGPA();
 }
 
@@ -134,14 +160,14 @@ function onOpen() {
     // Find a <table> element with id="classList":
     var table = document.getElementById("classList");
 
-    let allKeys = Object.keys(localStorage);
+   // let allKeys = Object.keys(localStorage);
 
-    for (let i = 0; i < allKeys.length; i++) {
+    let allData = JSON.parse(getCookie("data"))
+
+    for (let i = 0; i < allData.length; i++) {
         var row = table.insertRow(-1); // Insert a new row
         
-
-        var storedArray = JSON.parse(localStorage.getItem(allKeys[i])); // Acquire the array of data from localStorage
-
+        var storedArray = allData[i]
         // Insert all the cells into the row
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -160,4 +186,27 @@ function onOpen() {
     }
 
     calcGPA();
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
 }

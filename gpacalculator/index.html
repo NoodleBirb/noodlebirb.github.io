@@ -3,88 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>GPA Calculator</title>
-    <link rel="stylesheet" href="https://classicmc-studios.github.io/bc.css"/>
-    <link rel="stylesheet" href="./index.css"/>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body  onload="onOpen()">
     <a href="https://noodlebirb.github.io">
-        <button class="bc-m-10 bs-absolute">Home</button>
+        <button class="btn btn-link">Home</button>
     </a>
     
-    <div class="bc-text-align">
-        <H1 id="GPA">
-            GPA: ?
-        </H1>
+    <div class="container">
+        <div class="row text-center">
+            <H1 id="GPA">
+                GPA: ?
+            </H1>
+        </div>
+        <div class="row">
+            <div class="col col-xs-6 col-md-4"></div>
+            <div class="col col-xs-2">
+                <select class="form-select mx-auto" id="wOrUw" onchange="calcGPA()">
+                    <option value="W" disabled selected>Select your option</option>
+                    <option value="W" >Weighted</option>
+                    <option value="U">Unweighted</option>
+                </select>
+            </div>
+            <div class="col col-xs-6 col-md-4"></div>
+        </div>    
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <input id="class" class="form-control" placeholder="Enter the Class"/>
+            </div>
+            <div class="col-3">
+                <select id="letter" class="form-select">
+                    <option value="F" class="first" disabled selected >Grade</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="C-">C-</option>
+                    <option value="D+">D+</option>
+                    <option value="D">D</option>
+                    <option value="D-">D-</option>
+                    <option value="F">F</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col col-3"></div>
+            <div class="col col-6">
+                <select id="classType" class="form-select w-20" placeholder="Pick Type">
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="A">Academic</option>
+                    <option value="H">Honor</option>
+                    <option value="AP">AP/DE</option>
+                </select>
+            </div>
+            <div class="col col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary btn-normal" id="submit" value="Submit" onclick="addRow()">Submit </button>
+            </div>
+        </div>
 
-        <br>
-        <select id="wOrUw" onchange="calcGPA()">
-            <option value="W" disabled selected>Select your option</option>
-            <option value="W" >Weighted</option>
-            <option value="U">Unweighted</option>
-        </select>
-
-        <br>
-        <br>
-        
-        <input id="class" class="bc-p-5" placeholder="Enter the Class"/>
-        <select id="letter" class="bc-p-5 bc-text-align">
-            <option value="F" class="first" disabled selected >Grade</option>
-            <option value="A+">A+</option>
-            <option value="A">A</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B">B</option>
-            <option value="B-">B-</option>
-            <option value="C+">C+</option>
-            <option value="C">C</option>
-            <option value="C-">C-</option>
-            <option value="D+">D+</option>
-            <option value="D">D</option>
-            <option value="D-">D-</option>
-            <option value="F">F</option>
-        </select>
-
-        <br>
-
-        <select id="classType" placeholder="Pick Type">
-            <option value="" disabled selected>Select your option</option>
-            <option value="A">Academic</option>
-            <option value="H">Honor</option>
-            <option value="AP">AP/DE</option>
-        </select>
-
-        <br>
-        <br>
-        <input type="submit" id="submit" value="Submit" onclick="addRow()"/>
-
-        <br>
-        <br>
-        
-
-        <table id="classList" class="center">
-            <th>
-                Class
-            </th>
-            <th>
-                Grade
-            </th>
-            <th>
-                Type
-            </th>
             
+        <div class="row">
+            <div class="col col-2"></div>
+            <div class="col col-8 table-wrap">
+                <table id="classList" class="table table-bordered overflow-auto align-middle table-fit">
+                    <tr id="table-headers">
+                        <colgroup>
+                            <th scope="col" class="">
+                                Class
+                            </th>
+                            <th scope="col">
+                                Grade
+                            </th>
+                            <th scope="col">
+                                Type
+                            </th>
+                            <th scope="col" class="text-center">
+                                X
+                            </th>
+                        </colgroup>
+                    </tr>
 
-        </table>
-
+                </table>
+            </div>
+            <div class="col col-2"></div>
+        </div>
     </div>
 
     
 
-    <script src="index.js"></script>
-
+<script src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
-<footer>GPA Calculator created by Ethan Edwards, meant to be used in Loudoun County Public Schools.</footer>
+<footer class="fixed-bottom text-center">GPA Calculator created by Ethan Edwards, meant to be used in Loudoun County Public Schools.</footer>
 </html>
