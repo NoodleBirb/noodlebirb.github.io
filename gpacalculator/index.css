@@ -1,19 +1,49 @@
-.table-wrap {
-    overflow-y: scroll;
-    height: 300px;
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
 
+.header {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.table-wrap {
+    overflow-y: auto;
+    max-height: calc(100% - 120px); /* Adjust the value if needed */
+}
+
+#classList {
+    width: 100%;
+    border-collapse: collapse;
+}
 
 #classList td {
-    border-width: 4px
+    border-width: 4px;
+}
+
+.button-cell{
+    text-align: center;
 }
 
 #classList th {
-    border-width: 4px
-    
+    border-width: 4px;
 }
 
 #table-headers {
     column-width: 10%;
 }
+
+#footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+

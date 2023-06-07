@@ -113,11 +113,23 @@ function addRow() {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
 
+    cell4.classList.add("button-cell")
     // Add some text to the new cells:
     cell1.innerHTML = glass;
     cell2.innerHTML = letter;
-    cell3.innerHTML = typeClass;
-    cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm" onclick="deleteRow(' + index + ')"/>';
+    if (typeClass === "H") {
+        cell3.innerHTML = "Honors";
+    }
+    else if (typeClass === "AP") {
+        cell3.innerHTML = "AP/DE";
+    }
+    else if (typeClass === "A") {
+        cell3.innerHTML = "Academic";
+    }
+    else {
+        cell3.innerHTML = "Error Setting Class";
+    }
+    cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50" onclick="deleteRow(' + index + ')"/>';
 
     let storedArray = [cell1.innerHTML, cell2.innerHTML, cell3.innerHTML, cell4.innerHTML, index];
 
