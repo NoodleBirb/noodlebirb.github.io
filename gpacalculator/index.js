@@ -131,7 +131,7 @@ function addRow() {
     }
     cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50" onclick="deleteRow(' + index + ')"/>';
 
-    let storedArray = [cell1.innerHTML, cell2.innerHTML, cell3.innerHTML, cell4.innerHTML, index];
+    let storedArray = [cell1.innerHTML, cell2.innerHTML, row.value, cell4.innerHTML, index];
 
     if (getCookie("data") != "") {
         currentData = getCookie("data") // Get data stored in cookie
@@ -174,20 +174,35 @@ function onOpen() {
     let allData = JSON.parse(getCookie("data"))
 
     for (let i = 0; i < allData.length; i++) {
-        var row = table.insertRow(-1); // Insert a new row
+        let row = table.insertRow(-1); // Insert a new row
         
         // acquire one row from the parsed cookie
-        var storedArray = allData[i]
+        let storedArray = allData[i]
         // Insert all the cells into the row
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+
+        cell4.classList.add("button-cell")
+
+        let typeClass = storedArray[2]
 
         // Assign values to each of the cells
         cell1.innerHTML = storedArray[0];
         cell2.innerHTML = storedArray[1];
-        cell3.innerHTML = storedArray[2];
+        if (typeClass === "H") {
+            cell3.innerHTML = "Honors";
+        }
+        else if (typeClass === "AP") {
+            cell3.innerHTML = "AP/DE";
+        }
+        else if (typeClass === "A") {
+            cell3.innerHTML = "Academic";
+        }
+        else {
+            cell3.innerHTML = "Error Setting Class";
+        }
         cell4.innerHTML = storedArray[3];
 
         // Give the row an ID and a Value based on data from the "storedArray"
