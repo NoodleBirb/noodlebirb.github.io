@@ -47,3 +47,8 @@ html, body {
     padding: 10px;
 }
 
+.text-fix {
+    padding: 0%;
+    padding-left: 5%;
+    padding-right:5%;
+}

@@ -90,10 +90,10 @@ function calcGPA() {
 
 function addRow() {
     // Find a <table> element with id="classList":
-    var table = document.getElementById("classList");
-    var typeClass = document.getElementById("classType").value
-    var glass = document.getElementById("class").value;
-    var letter = document.getElementById("letter").value;
+    let table = document.getElementById("classList");
+    let typeClass = document.getElementById("classType").value
+    let glass = document.getElementById("class").value;
+    let letter = document.getElementById("letter").value;
 
     if (!validLetters.includes(letter)) {
         return null;
@@ -101,17 +101,17 @@ function addRow() {
     if (!validType.includes(typeClass)) {
         return null;
     }
-    var index = "a" + Math.random().toString(36).slice(2);
+    let index = "a" + Math.random().toString(36).slice(2);
     // Create an empty <tr> element and add it to the 1st position of the table:
-    var row = table.insertRow(-1);
+    let row = table.insertRow(-1);
     row.id = index;
     row.value = typeClass;
 
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
 
     cell4.classList.add("button-cell")
     // Add some text to the new cells:
@@ -129,7 +129,7 @@ function addRow() {
     else {
         cell3.innerHTML = "Error Setting Class";
     }
-    cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50" onclick="deleteRow(' + index + ')"/>';
+    cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50 text-center text-fix" onclick="deleteRow(' + index + ')"/>';
 
     let storedArray = [cell1.innerHTML, cell2.innerHTML, row.value, cell4.innerHTML, index];
 

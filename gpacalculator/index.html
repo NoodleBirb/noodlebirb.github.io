@@ -17,27 +17,30 @@
     
     <div class="container">
         <div class="row text-center">
-            <H1 id="GPA">
+            <H1>GPA Calculator</H1>
+        </div>
+        <div class="row text-center">
+            <H2 id="GPA">
                 GPA: ?
             </H1>
         </div>
         <div class="row">
-            <div class="col col-xs-6 col-md-4"></div>
-            <div class="col col-xs-2">
+            <div class="col col-3"></div>
+            <div class="col col-6">
                 <select class="form-select mx-auto" id="wOrUw" onchange="calcGPA()">
-                    <option value="W" disabled selected>Select your option</option>
+                    <option value="W" disabled selected>Select calculation type</option>
                     <option value="W" >Weighted</option>
                     <option value="U">Unweighted</option>
                 </select>
             </div>
-            <div class="col col-xs-6 col-md-4"></div>
+            <div class="col col-3"></div>
         </div>    
         <br>
         <div class="row justify-content-center">
-            <div class="col-3">
-                <input id="class" class="form-control" placeholder="Enter the Class"/>
+            <div class="col-4">
+                <input id="class" class="form-control" placeholder="Enter the class"/>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <select id="letter" class="form-select">
                     <option value="F" class="first" disabled selected >Grade</option>
                     <option value="A+">A+</option>
@@ -58,23 +61,27 @@
         </div>
         <br>
         <div class="row justify-content-center">
-            <div class="col col-3"></div>
-            <div class="col col-6">
+            <div class="col col-2"></div>
+            <div class="col col-8">
                 <select id="classType" class="form-select w-20" placeholder="Pick Type">
-                    <option value="" disabled selected>Select your option</option>
+                    <option value="" disabled selected>Select class type</option>
                     <option value="A">Academic</option>
                     <option value="H">Honor</option>
                     <option value="AP">AP/DE</option>
                 </select>
             </div>
-            <div class="col col-3"></div>
+            <div class="col col-2"></div>
         </div>
+
+        <br>
+
         <div class="row">
             <div class="col text-center">
-                <button type="submit" class="btn btn-primary btn-normal" id="submit" value="Submit" onclick="addRow()">Submit </button>
+                <button type="submit" class="btn btn-primary btn-normal" id="submit" value="Submit" onclick="addRow()">Add Class </button>
             </div>
         </div>
 
+        <br>
             
         <div class="row h-75">
             <div class="col col-2"></div>
