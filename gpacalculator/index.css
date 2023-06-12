@@ -18,7 +18,7 @@ html, body {
 
 .table-wrap {
     overflow-y: auto;
-    max-height: calc(100% - 120px); /* Adjust the value if needed */
+    max-height: calc(100% - 200px); /* Adjust the value if needed */
 }
 
 #classList {
@@ -49,6 +49,4 @@ html, body {
 
 .text-fix {
     padding: 0%;
-    padding-left: 5%;
-    padding-right:5%;
 }
