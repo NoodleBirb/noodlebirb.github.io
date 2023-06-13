@@ -85,7 +85,7 @@ function calcGPA() {
         // add the value found to num
         total += num;
     }
-    setGPA(Math.round((total / (count - 2) + Number.EPSILON) * 100) / 100);
+    setGPA(Math.round(Math.round((total / (count - 2)) * 100000) / 1000) / 100);
 }
 
 function addRow() {
