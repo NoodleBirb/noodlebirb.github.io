@@ -131,7 +131,9 @@ function addRow() {
     }
     cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50 text-center text-fix" onclick="deleteRow(' + index + ')"/>';
 
-    let storedArray = [cell1.innerHTML, cell2.innerHTML, row.value, cell4.innerHTML, index];
+    let storedArray = [encodeURIComponent(cell1.innerHTML), cell2.innerHTML, row.value, cell4.innerHTML, index];
+
+    console.log(storedArray)
 
     if (getCookie("data") != "") {
         currentData = getCookie("data") // Get data stored in cookie
@@ -139,7 +141,9 @@ function addRow() {
 
         cookieValue.push(storedArray)
 
-        setCookie("data", JSON.stringify(cookieValue), 10000)
+        let stringArray = JSON.stringify(cookieValue)
+
+        setCookie("data", stringArray, 10000)
     }
 
     else {
@@ -167,50 +171,54 @@ function deleteRow(rowid)  {
 }
 
 function onOpen() {
-    // Find a <table> element with id="classList":
-    var table = document.getElementById("classList");
 
-    // get the 2D array object from the cookie
-    let allData = JSON.parse(getCookie("data"))
+    if (document.cookie != "") {
 
-    for (let i = 0; i < allData.length; i++) {
-        let row = table.insertRow(-1); // Insert a new row
-        
-        // acquire one row from the parsed cookie
-        let storedArray = allData[i]
-        // Insert all the cells into the row
-        let cell1 = row.insertCell(0);
-        let cell2 = row.insertCell(1);
-        let cell3 = row.insertCell(2);
-        let cell4 = row.insertCell(3);
+        // Find a <table> element with id="classList":
+        var table = document.getElementById("classList");
 
-        cell4.classList.add("button-cell")
+        // get the 2D array object from the cookie
+        let allData = JSON.parse(getCookie("data"))
 
-        let typeClass = storedArray[2]
+        for (let i = 0; i < allData.length; i++) {
+            let row = table.insertRow(-1); // Insert a new row
+            
+            // acquire one row from the parsed cookie
+            let storedArray = allData[i]
+            // Insert all the cells into the row
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
 
-        // Assign values to each of the cells
-        cell1.innerHTML = storedArray[0];
-        cell2.innerHTML = storedArray[1];
-        if (typeClass === "H") {
-            cell3.innerHTML = "Honors";
+            cell4.classList.add("button-cell")
+
+            let typeClass = storedArray[2]
+
+            // Assign values to each of the cells
+            cell1.innerHTML = decodeURIComponent(storedArray[0]);
+            cell2.innerHTML = storedArray[1];
+            if (typeClass === "H") {
+                cell3.innerHTML = "Honors";
+            }
+            else if (typeClass === "AP") {
+                cell3.innerHTML = "AP/DE";
+            }
+            else if (typeClass === "A") {
+                cell3.innerHTML = "Academic";
+            }
+            else {
+                cell3.innerHTML = "Error Setting Class";
+            }
+            cell4.innerHTML = storedArray[3];
+
+            // Give the row an ID and a Value based on data from the "storedArray"
+            row.id = storedArray[4];
+            row.value = storedArray[2];
         }
-        else if (typeClass === "AP") {
-            cell3.innerHTML = "AP/DE";
-        }
-        else if (typeClass === "A") {
-            cell3.innerHTML = "Academic";
-        }
-        else {
-            cell3.innerHTML = "Error Setting Class";
-        }
-        cell4.innerHTML = storedArray[3];
 
-        // Give the row an ID and a Value based on data from the "storedArray"
-        row.id = storedArray[4];
-        row.value = storedArray[2];
+        calcGPA();
     }
-
-    calcGPA();
 }
 
 
@@ -225,7 +233,8 @@ function setCookie(cname, cvalue, exdays) {
 // W3 schools magic x2
 function getCookie(cname) {
     let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
+    // let decodedCookie = decodeURIComponent(document.cookie);
+    let decodedCookie = document.cookie;
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
       let c = ca[i];
