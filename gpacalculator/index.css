@@ -50,3 +50,7 @@ html, body {
 .text-fix {
     padding: 0%;
 }
+
+#GPA {
+    padding-bottom: 20px;
+}
