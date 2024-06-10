@@ -131,9 +131,13 @@ function addRow() {
     }
     cell4.innerHTML = '<input type="button" value="X" class="btn btn-danger btn-sm w-50 text-center text-fix" onclick="deleteRow(' + index + ')"/>';
 
+<<<<<<< Updated upstream
     let storedArray = [encodeURIComponent(cell1.innerHTML), cell2.innerHTML, row.value, cell4.innerHTML, index];
 
     console.log(storedArray)
+=======
+    let storedArray = [cell1.innerHTML, cell2.innerHTML, row.value, cell4.innerHTML, index];
+>>>>>>> Stashed changes
 
     if (getCookie("data") != "") {
         currentData = getCookie("data") // Get data stored in cookie
