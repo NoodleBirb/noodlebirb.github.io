@@ -2,7 +2,7 @@ console.log(window.location);
 var secondTry = 0;
 
 function oxideoneminus() {
-    window.location.pathname = "/oxide1minus.html";
+    window.location.pathname = "/chemstudy/oxide1minus.html";
 }
 function setOxideOneMinus() {
     elements = [
@@ -58,11 +58,11 @@ function setOxideThreeMinus() {
 }
 
 function oxidetwominus() {
-    window.location.pathname = "/oxide2minus.html";
+    window.location.pathname = "/chemstudy/oxide2minus.html";
 }
 
 function oxidethreeminus() {
-    window.location.pathname = "/oxide3minus.html";
+    window.location.pathname = "/chemstudy/oxide3minus.html";
 }
 
 function periodic() {
