@@ -58,7 +58,7 @@ function App() {
   return (
     <>
       <Container fluid>
-
+        
         <Row style={{height: '30%'}}>
           <Col className="test d-flex justify-content-center title">
           Welcome to ROCK PAPER SCISSORS SIMULATOR
