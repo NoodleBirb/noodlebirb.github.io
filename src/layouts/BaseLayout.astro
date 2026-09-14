@@ -11,6 +11,18 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body><slot /></body>
+  <body>
+    <div class="site-shell">
+      <slot />
+    </div>
+    <script is:inline>
+      const header = document.querySelector('.site-header');
+      if (header instanceof HTMLElement) {
+        const update = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+      }
+    </script>
+  </body>
 </html>
 
