@@ -20,3 +20,10 @@
 
 The current homepage is a development placeholder, not a design proposal.
 
+
+## Repository migration
+- Destination: NoodleBirb/noodlebirb.github.io; preserve both histories.
+- Archive the old homepage and static projects under public/past-projects/.
+- Keep Rock Paper Scissors in its separate repository at /rockPaperScissors/.
+- Domain: ethanedwards.dev (Name.com); hosting: GitHub Pages.
+- Work on migrate-past-projects until ready to replace the live homepage.
