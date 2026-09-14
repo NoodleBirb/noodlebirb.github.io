@@ -1,11 +1,98 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const experience = [
+  {
+    title: 'Software Developer',
+    organization: 'Your Company · 2024 - now',
+    description: 'Building thoughtful digital tools and learning something new with every release.',
+  },
+];
+
+const projects = [
+  {
+    title: 'A project title',
+    description: 'A short description of the problem, the approach, and the small detail that made this project yours.',
+    tags: ['Astro', 'TypeScript'],
+  },
+];
 ---
-<BaseLayout title="Portfolio" description="Personal developer portfolio.">
-  <main>
-    <h1>Portfolio</h1>
-    <p>Work in progress.</p>
-    <p><a href="/past-projects/">Past projects</a></p>
+<BaseLayout title="Ethan Edwards | Developer" description="The portfolio of Ethan Edwards, a developer who enjoys making useful things.">
+  <header class="site-header">
+    <div class="site-header-inner page-width">
+      <a class="wordmark" href="#top" aria-label="Back to the top">ethanedwards.dev</a>
+      <nav aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="page-width">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Hello, I'm Ethan</p>
+      <h1 id="intro-title">Introduction</h1>
+    </section>
+
+    <section id="about" class="about section-grid" aria-labelledby="about-title">
+      <div class="portrait-frame">
+        <div class="portrait-placeholder" role="img" aria-label="Placeholder for a portrait">
+          <span>photo</span>
+        </div>
+      </div>
+      <div class="about-copy ruled-panel">
+        <h2 id="about-title">About me</h2>
+        <p>I like turning fuzzy problems into simple, considered experiences. My work sits somewhere between engineering, design, and asking one more question before starting.</p>
+        <p>When I'm away from the keyboard, you'll probably find me following a new idea down a rabbit hole or making an unnecessarily specific playlist.</p>
+      </div>
+    </section>
+
+    <section id="experience" class="experience section-block" aria-labelledby="experience-title">
+      <h2 id="experience-title" class="section-title">Work experience</h2>
+      <div class="feature-row">
+        {experience.map((role) => (
+          <article class="work-card ruled-panel">
+            <h3>{role.title}</h3>
+            <p class="item-org">{role.organization}</p>
+            <p>{role.description}</p>
+          </article>
+        ))}
+        <div class="media-placeholder" role="img" aria-label="Placeholder for a work experience image">some image</div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects section-block" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section-title">Personal projects</h2>
+      <div class="feature-row project-row">
+        {projects.map((project) => (
+          <article class="project-card">
+            <div class="project-heading"><h3>{project.title}</h3><a href="#contact" aria-label={`View ${project.title}`}>↗</a></div>
+            <p>{project.description}</p>
+            <div class="tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
+          </article>
+        ))}
+        <div class="media-placeholder project-media" role="img" aria-label="Placeholder for a project image">image / gif</div>
+      </div>
+    </section>
   </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="page-width footer-inner">
+      <div>
+        <p class="section-kicker">Contact me at:</p>
+        <h2>hello@example.com</h2>
+      </div>
+      <div class="contact-links">
+        <div class="social-links">
+          <a href="#contact">GitHub</a>
+          <a href="#contact">LinkedIn</a>
+          <a href="/past-projects/">Past projects</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom page-width"><span>© 2026 Ethan Edwards</span></div>
+  </footer>
 </BaseLayout>
 

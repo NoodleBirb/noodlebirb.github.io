@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Style Lab | Ethan Edwards" description="Working design sandbox for Ethan Edwards' portfolio.">
+  <header class="site-header">
+    <div class="site-header-inner page-width">
+      <a class="wordmark" href="/">ethanedwards.dev</a>
+      <nav aria-label="Style lab navigation">
+        <a href="/">Home</a>
+        <span>Style lab</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-width lab-main">
+    <p class="eyebrow">Current direction</p>
+    <h1>Soft corners</h1>
+    <p class="lab-copy">Lavender spread, Fraunces with Manrope, and a sticky glass header. Future experiments start from this baseline.</p>
+  </main>
+</BaseLayout>
+
+<style>
+  nav span { color: var(--muted); }
+  .lab-main { padding: 2.5rem 0 4rem; }
+  .lab-main h1 { margin-bottom: 0.8rem; }
+  .lab-copy { max-width: 28rem; color: var(--muted); }
+</style>
