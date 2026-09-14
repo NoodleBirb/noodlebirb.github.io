@@ -3,7 +3,7 @@
 	Welcome to my awsome website guys<br class="svelte-1by6210"/><br class="svelte-1by6210"/> 
 	<p class="svelte-1by6210"><em class="svelte-1by6210"></em> 
 	</p><br class="svelte-1by6210"/> 
-	<a href="https://noodlebirb.github.io/novels/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">← Novels</span></span></a>    
-	<a href="https://noodlebirb.github.io/chemstudy/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">ChemStudy →</span></span> 
+	<a href="/past-projects/novels/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">← Novels</span></span></a>    
+	<a href="/past-projects/chemstudy/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">ChemStudy →</span></span> 
 	</a><br class="svelte-1by6210"/><br class="svelte-1by6210"/> 
-	<a href="https://noodlebirb.github.io/gpacalculator/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">← GpaCalcualtor </span></span></a>      <a href="https://noodlebirb.github.io/rockPaperScissors/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210"> RPS →</span></span></a>`,I(t,"class","bc-true-center bc-text-align svelte-1by6210")},m(n,r){B(n,t,r)},p:f,i:f,o:f,d(n){n&&L(t)}}}class V extends R{constructor(t){super(),Q(this,t,null,U,j,{})}}new V({target:document.getElementById("app")});
+	<a href="/past-projects/gpacalculator/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210">← GpaCalcualtor </span></span></a>      <a href="https://ethanedwards.dev/rockPaperScissors/" class="svelte-1by6210"><span class="udl svelte-1by6210"><span class="udl svelte-1by6210"> RPS →</span></span></a>`,I(t,"class","bc-true-center bc-text-align svelte-1by6210")},m(n,r){B(n,t,r)},p:f,i:f,o:f,d(n){n&&L(t)}}}class V extends R{constructor(t){super(),Q(this,t,null,U,j,{})}}new V({target:document.getElementById("app")});

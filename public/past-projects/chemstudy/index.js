@@ -2,7 +2,7 @@ console.log(window.location);
 var secondTry = 0;
 
 function oxideoneminus() {
-    window.location.pathname = "/chemstudy/oxide1minus.html";
+    window.location.pathname = "/past-projects/chemstudy/oxide1minus.html";
 }
 function setOxideOneMinus() {
     elements = [
@@ -58,15 +58,15 @@ function setOxideThreeMinus() {
 }
 
 function oxidetwominus() {
-    window.location.pathname = "/chemstudy/oxide2minus.html";
+    window.location.pathname = "/past-projects/chemstudy/oxide2minus.html";
 }
 
 function oxidethreeminus() {
-    window.location.pathname = "/chemstudy/oxide3minus.html";
+    window.location.pathname = "/past-projects/chemstudy/oxide3minus.html";
 }
 
 function periodic() {
-    window.location.pathname = "/periodictable/index.html";
+    window.location.pathname = "/past-projects/chemstudy/periodictable/index.html";
 }
 var ranIndex;
 var cor = 0;
@@ -76,7 +76,7 @@ var ind = 0;
 let elements = [];
 
 function homepage() {
-    window.location.pathname = "/index.html"
+    window.location.pathname = "/past-projects/chemstudy/index.html"
 }
 
 function checkAnswer() {

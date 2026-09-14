@@ -130,7 +130,7 @@ var total = 0;
 var ind = 0;
 
 function homepage() {
-    window.location.pathname = "/index.html"
+    window.location.pathname = "/past-projects/chemstudy/index.html"
 }
 
 function checkAnswer() {

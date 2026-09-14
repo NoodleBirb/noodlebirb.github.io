@@ -1,0 +1,6 @@
+/* Neutral foundation; visual design is still to be decided. */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; font-size: 1rem; line-height: 1.6; }
+main { width: min(100% - 2rem, 60rem); margin: 4rem auto; }
+img { max-width: 100%; height: auto; }
+
