@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const styleOptions = [
+  {
+    id: 'blue-hour',
+    number: '01',
+    name: 'Blue hour',
+    description: 'Inky blue structure with electric violet details and a little lavender warmth. This is the direction to keep developing.',
+    type: 'Syne + DM Sans',
+    palette: ['#eef1ff', '#19234a', '#7657e8'],
+  },
+];
+---
+
+<BaseLayout title="Style Lab | Ethan Edwards" description="Visual directions for Ethan Edwards' portfolio.">
+  <header class="lab-header">
+    <a href="/">ethanedwards.dev</a>
+    <span>Style lab / first pass</span>
+  </header>
+
+  <main class="lab-shell">
+    <section class="lab-intro">
+      <p class="lab-kicker">A small design exercise</p>
+      <h1>Which one feels<br /><em>like me?</em></h1>
+      <p>These are four visual directions for the portfolio. The content stays almost identical so the differences are easier to feel.</p>
+    </section>
+
+    <section class="style-grid" aria-label="Portfolio styling options">
+      {styleOptions.map((option) => (
+        <article class={`style-option option-${option.id}`}>
+          <div class="option-meta">
+            <span>{option.number}</span>
+            <span>{option.type}</span>
+          </div>
+          <div class="preview-window">
+            <div class="preview-nav">
+              <strong>ethanedwards.dev</strong>
+              <span>Work&nbsp;&nbsp; About&nbsp;&nbsp; Contact</span>
+            </div>
+            <div class="preview-content">
+              <p class="preview-label">Hello, I'm Ethan</p>
+              <h2>Introduction</h2>
+              <div class="preview-columns">
+                <div class="preview-photo">photo</div>
+                <div class="preview-copy"><b>About me</b><span>A developer interested in clear ideas and useful software.</span></div>
+              </div>
+            </div>
+            <div class="preview-rule"></div>
+          </div>
+          <div class="option-info">
+            <h2>{option.name}</h2>
+            <p>{option.description}</p>
+            <div class="swatches" aria-label={`${option.name} color palette`}>
+              {option.palette.map((color) => <span style={`background: ${color}`} title={color}></span>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;600&family=DM+Serif+Display&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&family=Source+Sans+3:wght@400;600&family=Syne:wght@500;600;700&display=swap');
+
+  :global(body) { background: #e7e5df; color: #20241f; }
+  .lab-header { width: min(100% - 3rem, 80rem); margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; font: 0.68rem 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .lab-header a { color: inherit; text-decoration: none; font: 600 1.3rem Manrope, sans-serif; text-transform: none; letter-spacing: -0.06em; }
+  .lab-header span { color: #72776f; }
+  .lab-shell { width: min(100% - 3rem, 80rem); margin: auto; }
+  .lab-intro { max-width: 40rem; padding: 5rem 0 4rem; }
+  .lab-kicker { margin: 0 0 1rem; color: #c35d45; font: 0.68rem 'DM Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+  .lab-intro h1 { margin: 0; font: 600 clamp(3.4rem, 8vw, 7rem)/0.88 Manrope, sans-serif; letter-spacing: -0.09em; }
+  .lab-intro h1 em { color: #c35d45; font-family: 'DM Serif Display', serif; font-style: italic; letter-spacing: -0.06em; }
+  .lab-intro > p:last-child { max-width: 31rem; margin: 2rem 0 0; color: #72776f; font: 1rem/1.6 Manrope, sans-serif; }
+  .style-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; padding-bottom: 5rem; }
+  .style-option { min-width: 0; }
+  .option-meta { display: flex; justify-content: space-between; margin-bottom: 0.7rem; color: #72776f; font: 0.63rem 'DM Mono', monospace; letter-spacing: 0.05em; text-transform: uppercase; }
+  .preview-window { min-height: 22rem; overflow: hidden; padding: 1.3rem; border: 1px solid #c3c5bc; background: var(--preview-paper); color: var(--preview-ink); }
+  .preview-nav { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid var(--preview-line); font: 0.55rem var(--preview-body); }
+  .preview-nav strong { font-size: 0.85rem; }
+  .preview-nav span { opacity: 0.65; }
+  .preview-content { padding: 2rem 0 2.5rem; }
+  .preview-label { margin: 0 0 0.45rem; color: var(--preview-accent); font: 0.55rem var(--preview-body); text-transform: uppercase; letter-spacing: 0.1em; }
+  .preview-content h2 { margin: 0 0 1.5rem; font: 3rem/0.85 var(--preview-heading); letter-spacing: -0.06em; }
+  .preview-columns { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 0.7rem; }
+  .preview-photo, .preview-copy { min-height: 6rem; padding: 0.7rem; border: 1px solid var(--preview-ink); }
+  .preview-photo { display: grid; place-items: center; background: var(--preview-wash); font: 1.4rem var(--preview-heading); }
+  .preview-copy { display: flex; flex-direction: column; gap: 0.7rem; font: 0.65rem/1.35 var(--preview-body); }
+  .preview-copy b { font: 1.3rem var(--preview-heading); }
+  .preview-copy span { opacity: 0.7; }
+  .preview-rule { width: 65%; height: 0.45rem; border-radius: 99px; background: var(--preview-accent); opacity: 0.75; }
+  .option-info { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem 1rem; padding: 1rem 0; border-bottom: 1px solid #c3c5bc; }
+  .option-info h2 { margin: 0; font: 600 1.2rem var(--preview-heading); }
+  .option-info p { grid-column: 1; margin: 0; color: #72776f; font: 0.78rem/1.5 Manrope, sans-serif; }
+  .swatches { display: flex; align-self: start; gap: 0.25rem; }
+  .swatches span { width: 1rem; height: 1rem; border: 1px solid rgba(0,0,0,0.18); border-radius: 50%; }
+
+  .option-blue-hour { --preview-paper: #eef1ff; --preview-ink: #19234a; --preview-line: #aeb9df; --preview-accent: #7657e8; --preview-wash: #d8d4ff; --preview-heading: Syne, sans-serif; --preview-body: 'DM Sans', sans-serif; }
+  .option-blue-hour .preview-window { border: 0; border-radius: 1.1rem; box-shadow: 0.45rem 0.45rem 0 #b6a7ff; }
+  .option-blue-hour .preview-photo { border: 0; border-radius: 45% 55% 50% 40%; }
+  .option-blue-hour .preview-rule { height: 0.7rem; border-radius: 0.2rem; }
+
+  @media (max-width: 700px) {
+    .lab-header, .lab-shell { width: min(100% - 2rem, 80rem); }
+    .lab-header span { display: none; }
+    .lab-intro { padding: 3.5rem 0 3rem; }
+    .style-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
