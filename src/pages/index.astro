@@ -1,30 +1,80 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const experience = [
+const experience: {
+  title: string;
+  organization: string;
+  description: string[];
+  image?: string;
+  imageFit?: 'contain';
+}[] = [
   {
-    title: 'Software Developer',
-    organization: 'Your Company · 2024 - now',
-    description: 'Building thoughtful digital tools and learning something new with every release.',
+    title: 'Software Executive',
+    organization: 'Mechatronics and Robotics Society (MARS) · Charlottesville, VA · January 2026 – Present',
+    description: [
+      'Currently this is the project I\'m most passionate about because the people around me are so amazing!',
+      'Here is the first time I\'ve really had to work with a large team of people all doing their own things using their own unique technical skills.',
+      'Clearly I did something right though because they added me as a software lead, and now I\'m learning to manage a team of software engineers to hopefully create an even better codebase for this year\'s competition.',
+    ],
+    image: '/grandprize2026.jpg',
+  },
+  {
+    title: 'IT Developer',
+    organization: 'Trusted Care Foundation · Fairfax, VA · June 2025 – August 2026',
+    description: [
+      'This was my first real-world experience in software, and I had to learn to work with a small team of people and create a product that satisfied my customers.',
+      'I also learned to deal with large-scale data platforms and linking their apis with an application I developed to help bring important opportunities to medical students.',
+    ],
+    image: '/tcfbanner.png',
+    imageFit: 'contain',
+  },
+  {
+    title: 'ML Intern',
+    organization: 'LGI Tech · Leesburg, VA · July 2026 – August 2026',
+    description: [
+      'Here, I interned under an ex-Google engineer and learned how to work with LLMs and a large-scale production repository.',
+      'Although I used to be pessimistic about LLMs in general, I was definitely surprised at the capabiltiies they have!',
+    ],
   },
 ];
 
-const projects = [
+const projects: {
+  title: string;
+  href: string;
+  description: string;
+  tags: string[];
+  image?: string;
+}[] = [
   {
-    title: 'A project title',
-    description: 'A short description of the problem, the approach, and the small detail that made this project yours.',
-    tags: ['Astro', 'TypeScript'],
+    title: 'MARS NASA Lunabotics Robot',
+    href: 'https://marsatuva.org/',
+    description: 'ROS2 Action Server for dig/dump autonomy, C++ sockets feeding a React UI in real time, and GitHub Pages documentation — built with MARS, January 2026 – Present.',
+    tags: ['ROS2', 'C++', 'React'],
+    image: '/brunorover.png',
+  },
+  {
+    title: 'Incremental Haven',
+    href: 'https://ethanedwards.dev/Incremental-Haven/',
+    description: 'A personal game that tracks 10+ values, structured modularly for later additions, with a research notebook of the development process. August 2024 – June 2025.',
+    tags: ['Game', 'Blender', 'Unity', 'C#'],
+    image: '/incrementalhaven.png',
+  },
+  {
+    title: 'Past projects',
+    href: '/past-projects/',
+    description: 'This is a list of projects I worked on before I became more adept at programming in general. Though I\'m not exactly proud of them now, they do still hold a special place in my heart!',
+    tags: ['Archive', 'JavaScript', 'HTML'],
   },
 ];
 ---
-<BaseLayout title="Ethan Edwards | Developer" description="The portfolio of Ethan Edwards, a developer who enjoys making useful things.">
+<BaseLayout title="Ethan Edwards | Developer" description="Ethan Edwards, a Computer Science student at the University of Virginia.">
   <header class="site-header">
     <div class="site-header-inner page-width">
       <a class="wordmark" href="#top" aria-label="Back to the top">ethanedwards.dev</a>
       <nav aria-label="Main navigation">
         <a href="#top">Home</a>
         <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
+        <a href="/resume.pdf">Resume</a>
       </nav>
     </div>
   </header>
@@ -32,47 +82,59 @@ const projects = [
   <main id="top" class="page-width">
     <section class="intro" aria-labelledby="intro-title">
       <p class="eyebrow">Hello, I'm Ethan</p>
-      <h1 id="intro-title">Introduction</h1>
+      <h1 id="intro-title">Computer science at UVA</h1>
     </section>
 
     <section id="about" class="about section-grid" aria-labelledby="about-title">
-      <div class="portrait-frame">
-        <div class="portrait-placeholder" role="img" aria-label="Placeholder for a portrait">
-          <span>photo</span>
+        <div class="portrait-frame">
+          <img class="portrait-placeholder" src="/portrait.jpg" alt="Ethan Edwards pointing at the water with teammates on a pier" />
         </div>
-      </div>
       <div class="about-copy ruled-panel">
         <h2 id="about-title">About me</h2>
-        <p>I like turning fuzzy problems into simple, considered experiences. My work sits somewhere between engineering, design, and asking one more question before starting.</p>
-        <p>When I'm away from the keyboard, you'll probably find me following a new idea down a rabbit hole or making an unnecessarily specific playlist.</p>
+        <p>My name is Ethan Edwards and I've been passionate about Computer Science since middle school! I have a general passion for learning more about how computers can interact with things around me, and I'm always looking for new experiences.</p>
+        <p>Currently, I'm a Computer Science student at the University of Virginia, planning to graduate in May 2028, and I'm learning more every single day!</p>
+        <p>Right now, I'm passionate about rock climbing and I love playing games with my friends. I currently climb about V5, but I have a lifelong goal of V13!</p>
       </div>
     </section>
 
     <section id="experience" class="experience section-block" aria-labelledby="experience-title">
       <h2 id="experience-title" class="section-title">Work experience</h2>
-      <div class="feature-row">
+      <div class="experience-list">
         {experience.map((role) => (
           <article class="work-card ruled-panel">
-            <h3>{role.title}</h3>
-            <p class="item-org">{role.organization}</p>
-            <p>{role.description}</p>
+            {role.image && (
+              <div class:list={['work-media', { 'is-contain': role.imageFit === 'contain' }]}>
+                <img src={role.image} alt="" />
+              </div>
+            )}
+            <div class="work-copy">
+              <h3>{role.title}</h3>
+              <p class="item-org">{role.organization}</p>
+              {role.description.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
           </article>
         ))}
-        <div class="media-placeholder" role="img" aria-label="Placeholder for a work experience image">some image</div>
       </div>
     </section>
 
     <section id="projects" class="projects section-block" aria-labelledby="projects-title">
       <h2 id="projects-title" class="section-title">Personal projects</h2>
-      <div class="feature-row project-row">
+      <div class="projects-grid">
         {projects.map((project) => (
           <article class="project-card">
-            <div class="project-heading"><h3>{project.title}</h3><a href="#contact" aria-label={`View ${project.title}`}>↗</a></div>
+            {project.image && (
+              <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
+                <img src={project.image} alt="" />
+              </a>
+            )}
+            <div class="project-heading">
+              <h3>{project.title}</h3>
+              <a href={project.href} aria-label={`View ${project.title}`}>↗</a>
+            </div>
             <p>{project.description}</p>
             <div class="tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
           </article>
         ))}
-        <div class="media-placeholder project-media" role="img" aria-label="Placeholder for a project image">image / gif</div>
       </div>
     </section>
   </main>
@@ -81,13 +143,14 @@ const projects = [
     <div class="page-width footer-inner">
       <div>
         <p class="section-kicker">Contact me at:</p>
-        <h2>hello@example.com</h2>
+        <h2><a href="mailto:ethan.edwards750@gmail.com">ethan.edwards750@gmail.com</a></h2>
       </div>
       <div class="contact-links">
         <div class="social-links">
-          <a href="#contact">GitHub</a>
-          <a href="#contact">LinkedIn</a>
+          <a href="https://github.com/NoodleBirb">GitHub</a>
+          <a href="https://www.linkedin.com/in/ethan-edwards-14b537367/">LinkedIn</a>
           <a href="/past-projects/">Past projects</a>
+          <a href="/resume.pdf">Resume</a>
           <a href="#top">Back to top ↑</a>
         </div>
       </div>
@@ -95,4 +158,3 @@ const projects = [
     <div class="footer-bottom page-width"><span>© 2026 Ethan Edwards</span></div>
   </footer>
 </BaseLayout>
-
