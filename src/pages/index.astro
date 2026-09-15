@@ -1,46 +1,69 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const experience = [
+const experience: {
+  title: string;
+  organization: string;
+  description: string[];
+  image?: string;
+  imageFit?: 'contain';
+}[] = [
   {
     title: 'Software Executive',
     organization: 'Mechatronics and Robotics Society (MARS) · Charlottesville, VA · January 2026 – Present',
     description: [
-      'Awarded first place in a NASA competition against 47 colleges and universities.',
-      'Worked across software, electrical, and mechanical sub-teams, including Mission Control at Kennedy Space Center for NASA Lunabotics.',
-      'Contributed real-time UI updates from sensor feedback and dig/dump autonomy after joining a semester late, then selected as software lead for next year.',
+      'Currently this is the project I\'m most passionate about because the people around me are so amazing!',
+      'Here is the first time I\'ve really had to work with a large team of people all doing their own things using their own unique technical skills.',
+      'Clearly I did something right though because they added me as a software lead, and now I\'m learning to manage a team of software engineers to hopefully create an even better codebase for this year\'s competition.',
     ],
+    image: '/grandprize2026.jpg',
   },
   {
     title: 'IT Developer',
     organization: 'Trusted Care Foundation · Fairfax, VA · June 2025 – August 2026',
     description: [
-      'Collaborated with developers and managers on an app connected to HubSpot CRM for real-time updates across thousands of contacts.',
-      'Integrated external software with HubSpot to gather and display data, and published a website for students to sign up for medical trainings.',
+      'This was my first real-world experience in software, and I had to learn to work with a small team of people and create a product that satisfied my customers.',
+      'I also learned to deal with large-scale data platforms and linking their apis with an application I developed to help bring important opportunities to medical students.',
     ],
+    image: '/tcfbanner.png',
+    imageFit: 'contain',
   },
   {
     title: 'ML Intern',
     organization: 'LGI Tech · Leesburg, VA · July 2026 – August 2026',
     description: [
-      'Interned under an ex-Google engineer on transcription refinement via LLM output.',
-      'Wrote prompts and scripts to parse JSON output, update transcriptions, and evaluate the approach with false-positive and true-positive rates.',
+      'Here, I interned under an ex-Google engineer and learned how to work with LLMs and a large-scale production repository.',
+      'Although I used to be pessimistic about LLMs in general, I was definitely surprised at the capabiltiies they have!',
     ],
   },
 ];
 
-const projects = [
+const projects: {
+  title: string;
+  href: string;
+  description: string;
+  tags: string[];
+  image?: string;
+}[] = [
   {
     title: 'MARS NASA Lunabotics Robot',
     href: 'https://marsatuva.org/',
     description: 'ROS2 Action Server for dig/dump autonomy, C++ sockets feeding a React UI in real time, and GitHub Pages documentation — built with MARS, January 2026 – Present.',
     tags: ['ROS2', 'C++', 'React'],
+    image: '/brunorover.png',
   },
   {
     title: 'Incremental Haven',
     href: 'https://ethanedwards.dev/Incremental-Haven/',
     description: 'A personal game that tracks 10+ values, structured modularly for later additions, with a research notebook of the development process. August 2024 – June 2025.',
-    tags: ['Game', 'JavaScript'],
+    tags: ['Game', 'Blender', 'Unity', 'C#'],
+    image: '/incrementalhaven.png',
+  },
+  {
+    title: 'Past projects',
+    href: '/past-projects/',
+    description: 'This is a list of projects I worked on before I became more adept at programming in general. Though I\'m not exactly proud of them now, they do still hold a special place in my heart!',
+    tags: ['Archive', 'JavaScript', 'HTML'],
   },
 ];
 ---
@@ -68,8 +91,8 @@ const projects = [
         </div>
       <div class="about-copy ruled-panel">
         <h2 id="about-title">About me</h2>
-        <p>Replace this with your own writing. Starter from the resume: University of Virginia, B.A. in Computer Science, May 2028, GPA 3.79 / 4.0. Software Executive with the Mechatronics and Robotics Society in Charlottesville.</p>
-        <p>Python, C++, C#, Java, JavaScript/TypeScript, C, SQL, HTML/CSS, Node.js. ROS2, Unity, Git, Django, React.</p>
+        <p>My name is Ethan Edwards and I've been passionate about Computer Science since middle school! I have a general passion for learning more about how computers can interact with things around me, and I'm always looking for new experiences.</p>
+        <p>Currently, I'm a Computer Science student at the University of Virginia, planning to graduate in May 2028, and I'm learning more every single day!</p>
       </div>
     </section>
 
@@ -78,9 +101,16 @@ const projects = [
       <div class="experience-list">
         {experience.map((role) => (
           <article class="work-card ruled-panel">
-            <h3>{role.title}</h3>
-            <p class="item-org">{role.organization}</p>
-            {role.description.map((paragraph) => <p>{paragraph}</p>)}
+            {role.image && (
+              <div class:list={['work-media', { 'is-contain': role.imageFit === 'contain' }]}>
+                <img src={role.image} alt="" />
+              </div>
+            )}
+            <div class="work-copy">
+              <h3>{role.title}</h3>
+              <p class="item-org">{role.organization}</p>
+              {role.description.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
           </article>
         ))}
       </div>
@@ -91,6 +121,11 @@ const projects = [
       <div class="projects-grid">
         {projects.map((project) => (
           <article class="project-card">
+            {project.image && (
+              <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
+                <img src={project.image} alt="" />
+              </a>
+            )}
             <div class="project-heading">
               <h3>{project.title}</h3>
               <a href={project.href} aria-label={`View ${project.title}`}>↗</a>
