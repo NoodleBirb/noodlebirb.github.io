@@ -1,0 +1,66 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    section: 'projects' | 'experience';
+    subtitle?: string;
+    image?: string;
+    imageAlt?: string;
+    imageFit?: 'contain';
+    diagram?: boolean;
+    tags?: string[];
+    link?: { href: string; label: string };
+  };
+}
+
+const { frontmatter: page } = Astro.props;
+const sectionLabel = page.section === 'experience' ? 'Work experience' : 'Projects';
+const backHref = `/#${page.section}`;
+---
+<BaseLayout title={`${page.title} | Ethan Edwards`} description={page.description}>
+  <header class="site-header">
+    <div class="site-header-inner page-width">
+      <a class="wordmark" href="/">ethanedwards.dev</a>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="/resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-width detail-page">
+    <a class="back-link" href={backHref}>← Back to {sectionLabel.toLowerCase()}</a>
+    <article>
+      <header class="detail-heading">
+        <p class="eyebrow">{sectionLabel}</p>
+        <h1>{page.title}</h1>
+        {page.subtitle && <p class="detail-subtitle">{page.subtitle}</p>}
+        {page.tags && <div class="tags">{page.tags.map((tag) => <span>{tag}</span>)}</div>}
+      </header>
+
+      {page.image && (
+        <div class:list={['detail-media', { 'is-contain': page.imageFit === 'contain', 'is-diagram': page.diagram }]}>
+          <img src={page.image} alt={page.imageAlt ?? ''} />
+        </div>
+      )}
+
+      <div class="detail-body">
+        <slot />
+      </div>
+
+      {page.link && <a class="learn-more" href={page.link.href}>{page.link.label} ↗</a>}
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width detail-footer">
+      <a class="back-link" href={backHref}>← Back to {sectionLabel.toLowerCase()}</a>
+      <a href="mailto:ethan.edwards750@gmail.com">Get in touch</a>
+    </div>
+    <div class="footer-bottom page-width"><span>© 2026 Ethan Edwards</span></div>
+  </footer>
+</BaseLayout>

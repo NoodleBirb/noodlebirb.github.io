@@ -15,6 +15,18 @@ Run `npm run build` for production output in `dist/`, and `npm run preview` to p
 - `.github/workflows/ci.yml`: build verification
 - `.github/workflows/astro.yml`: Pages deployment from `main`, using Node.js 24
 
+## Project and experience pages
+
+Each homepage card has a Learn More button leading to its own Markdown page in
+`src/pages/projects/` or `src/pages/experience/`. Add headings, paragraphs, lists,
+links, or images beneath the frontmatter to expand a page. For example, edit
+`src/pages/projects/top-compiler-extensions.md` to add compiler project details.
+Images can be placed in `public/` and referenced as `![Description](/image.png)`.
+
+The frontmatter controls the page title, subtitle, hero image, tags, and optional
+external link. These pages use `src/layouts/DetailLayout.astro` for shared styling
+and navigation. Homepage summaries are edited separately in `src/pages/index.astro`.
+
 ## Repository and publishing
 The destination repository is `NoodleBirb/noodlebirb.github.io`. The migration combines its existing history with the Astro project's history without force-pushing.
 

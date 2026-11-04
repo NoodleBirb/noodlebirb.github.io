@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const experience: {
   title: string;
+  detailHref: string;
   organization: string;
   description: string[];
   image?: string;
@@ -10,6 +11,7 @@ const experience: {
 }[] = [
   {
     title: 'Software Executive',
+    detailHref: '/experience/mars/',
     organization: 'Mechatronics and Robotics Society (MARS) · Charlottesville, VA · January 2026 – Present',
     description: [
       'Currently this is the project I\'m most passionate about because the people around me are so amazing!',
@@ -20,6 +22,7 @@ const experience: {
   },
   {
     title: 'IT Developer',
+    detailHref: '/experience/trusted-care-foundation/',
     organization: 'Trusted Care Foundation · Fairfax, VA · June 2025 – August 2026',
     description: [
       'This was my first real-world experience in software, and I had to learn to work with a small team of people and create a product that satisfied my customers.',
@@ -30,6 +33,7 @@ const experience: {
   },
   {
     title: 'Machine Learning Intern',
+    detailHref: '/experience/lgi-tech/',
     organization: 'LGI Tech · Leesburg, VA · July 2026 – August 2026',
     description: [
       'Here, I interned under an ex-Google engineer and learned how to work with LLMs and a large-scale production repository.',
@@ -42,6 +46,7 @@ const experience: {
 
 const projects: {
   title: string;
+  detailHref: string;
   href?: string;
   description: string;
   tags: string[];
@@ -51,6 +56,7 @@ const projects: {
 }[] = [
   {
     title: 'MARS NASA Lunabotics Robot',
+    detailHref: '/projects/mars-lunabotics/',
     href: 'https://marsatuva.org/',
     description: 'I architected and implemented a ROS 2 state machine and autonomous excavation/dumping systems using asynchronous Actions. The autonomy stack integrates RTAB-Map visual SLAM, Nav2 with A* and Theta* planning, and AprilTag localization, alongside LiDAR/depth-camera point clouds and PyTorch U-Net segmentation. C++ socket telemetry feeds robot state and sensor feedback to a real-time React operator interface. January 2026 – Present.',
     tags: ['ROS 2', 'C++', 'React', 'Nav2', 'PyTorch'],
@@ -58,6 +64,7 @@ const projects: {
   },
   {
     title: 'Hoos Taking Notes',
+    detailHref: '/projects/hoos-taking-notes/',
     description: 'For my Software Engineering class, we decided to try and develop a note sharing platform, aptly named "Hoos Taking Notes" since our school calls students "Hoos". Here, we had to learn to use Django, PostgreSQL, Amazon S3, and deployment on Heroku, in order to create the application. During this class, we learned about several software development methods, and we also employed the "Scrum" ideology. For my group, I was designated as Scrum Lead, and I make sure we\'re having weekly check-ins, taks designations, and that we\'re meeting deadlines as a group. At the time of writing this, the project is still underway, but most of the meat of it is done, and I\'m excited to update this page with more info!',
     tags: ['Django', 'PostgreSQL', 'Amazon S3', 'Heroku'],
     image: '/hoostakingnotes.png',
@@ -65,6 +72,7 @@ const projects: {
   },
   {
     title: 'TOP Compiler Extensions',
+    detailHref: '/projects/top-compiler-extensions/',
     href: 'https://github.com/NoodleBirb/sopc-edwards',
     description: 'For my Fall 2026 Compilers class, I was expected to extend a compiler for TOP, to include several new featurse, and had to work through it via careful planning and close knowledge of the compilation pipeline! It was split into several stages, with the first being parsing, but eventually we made it all the way to code generation, allowing us to run our programs using newly added for loops, sequences, and lambdas.',
     tags: ['Compiler Design', 'Type Checking', 'Memory Safety'],
@@ -74,6 +82,7 @@ const projects: {
   },
   {
     title: 'Incremental Haven',
+    detailHref: '/projects/incremental-haven/',
     href: 'https://ethanedwards.dev/Incremental-Haven/',
     description: 'A personal game that tracks 10+ values, structured modularly for later additions, with a research notebook of the development process. August 2024 – June 2025.',
     tags: ['Game', 'Blender', 'Unity', 'C#'],
@@ -81,6 +90,7 @@ const projects: {
   },
   {
     title: 'Past projects',
+    detailHref: '/projects/past-projects/',
     href: '/past-projects/',
     description: 'This is a list of projects I worked on before I became more adept at programming in general. Though I\'m not exactly proud of them now, they do still hold a special place in my heart!',
     tags: ['Archive', 'JavaScript', 'HTML'],
@@ -131,6 +141,7 @@ const projects: {
               <h3>{role.title}</h3>
               <p class="item-org">{role.organization}</p>
               {role.description.map((paragraph) => <p>{paragraph}</p>)}
+              <a class="learn-more" href={role.detailHref} aria-label={`Learn more about ${role.title} at ${role.organization.split(' · ')[0]}`}>Learn More</a>
             </div>
           </article>
         ))}
@@ -158,6 +169,7 @@ const projects: {
             </div>
             <p>{project.description}</p>
             <div class="tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
+            <a class="learn-more" href={project.detailHref} aria-label={`Learn more about ${project.title}`}>Learn More</a>
           </article>
         ))}
       </div>
