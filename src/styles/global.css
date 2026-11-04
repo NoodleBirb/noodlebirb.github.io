@@ -70,6 +70,8 @@ img.portrait-placeholder { min-height: 0; aspect-ratio: 1.05; padding: 0; overfl
 .work-media.is-contain img { object-fit: contain; }
 .project-media { display: block; margin: -1.15rem -1.15rem 0.85rem; }
 .project-media img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.project-media.is-contain { background: var(--muted); }
+.project-media.is-contain img { object-fit: contain; }
 .work-card h3, .project-card h3 { margin-bottom: 0.25rem; font-size: 1.35rem; }
 .item-org { color: var(--muted) !important; font-size: 0.68rem; }
 .project-heading { display: flex; justify-content: space-between; align-items: start; }
