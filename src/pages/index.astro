@@ -13,8 +13,8 @@ const experience: {
     organization: 'Mechatronics and Robotics Society (MARS) · Charlottesville, VA · January 2026 – Present',
     description: [
       'Currently this is the project I\'m most passionate about because the people around me are so amazing!',
-      'Here is the first time I\'ve really had to work with a large team of people all doing their own things using their own unique technical skills.',
-      'Clearly I did something right though because they added me as a software lead, and now I\'m learning to manage a team of software engineers to hopefully create an even better codebase for this year\'s competition.',
+      'I lead 10+ software developers within our 140+ member robotics organization, bringing together work on autonomy, perception, navigation, and control.',
+      'Before becoming Software Executive, I was the main point of contact for our autonomy stack. I contributed autonomous systems and on-site mission control to our first-place NASA Lunabotics and third-place international Lunabotics finishes.',
     ],
     image: '/grandprize2026.jpg',
   },
@@ -23,34 +23,54 @@ const experience: {
     organization: 'Trusted Care Foundation · Fairfax, VA · June 2025 – August 2026',
     description: [
       'This was my first real-world experience in software, and I had to learn to work with a small team of people and create a product that satisfied my customers.',
-      'I also learned to deal with large-scale data platforms and linking their apis with an application I developed to help bring important opportunities to medical students.',
+      'I built and deployed a medical-training registration website serving 100+ monthly users, refining it through stakeholder feedback. Connecting registration and CRM data workflows also saved upper management 3+ hours every two weeks.',
     ],
     image: '/tcfbanner.png',
     imageFit: 'contain',
   },
   {
-    title: 'ML Intern',
+    title: 'Machine Learning Intern',
     organization: 'LGI Tech · Leesburg, VA · July 2026 – August 2026',
     description: [
       'Here, I interned under an ex-Google engineer and learned how to work with LLMs and a large-scale production repository.',
-      'Although I used to be pessimistic about LLMs in general, I was definitely surprised at the capabiltiies they have!',
+      'I developed an LLM-assisted transcription refinement pipeline in Python, using prompt engineering to parse structured JSON output and apply corrections. I measured false-positive and true-positive rates to evaluate how accurate and reliable those corrections were.',
     ],
+    image: '/ChatGPT-Logo.png',
+    imageFit: 'contain',
   },
 ];
 
 const projects: {
   title: string;
-  href: string;
+  href?: string;
   description: string;
   tags: string[];
   image?: string;
+  imageAlt?: string;
+  imageFit?: 'contain';
 }[] = [
   {
     title: 'MARS NASA Lunabotics Robot',
     href: 'https://marsatuva.org/',
-    description: 'ROS2 Action Server for dig/dump autonomy, C++ sockets feeding a React UI in real time, and GitHub Pages documentation — built with MARS, January 2026 – Present.',
-    tags: ['ROS2', 'C++', 'React'],
+    description: 'I architected and implemented a ROS 2 state machine and autonomous excavation/dumping systems using asynchronous Actions. The autonomy stack integrates RTAB-Map visual SLAM, Nav2 with A* and Theta* planning, and AprilTag localization, alongside LiDAR/depth-camera point clouds and PyTorch U-Net segmentation. C++ socket telemetry feeds robot state and sensor feedback to a real-time React operator interface. January 2026 – Present.',
+    tags: ['ROS 2', 'C++', 'React', 'Nav2', 'PyTorch'],
     image: '/brunorover.png',
+  },
+  {
+    title: 'Hoos Taking Notes',
+    description: 'For my Software Engineering class, we decided to try and develop a note sharing platform, aptly named "Hoos Taking Notes" since our school calls students "Hoos". Here, we had to learn to use Django, PostgreSQL, Amazon S3, and deployment on Heroku, in order to create the application. During this class, we learned about several software development methods, and we also employed the "Scrum" ideology. For my group, I was designated as Scrum Lead, and I make sure we\'re having weekly check-ins, taks designations, and that we\'re meeting deadlines as a group. At the time of writing this, the project is still underway, but most of the meat of it is done, and I\'m excited to update this page with more info!',
+    tags: ['Django', 'PostgreSQL', 'Amazon S3', 'Heroku'],
+    image: '/hoostakingnotes.png',
+    imageAlt: 'Hoos Taking Notes homepage with a course notes search and sign-in panel',
+  },
+  {
+    title: 'TOP Compiler Extensions',
+    href: 'https://github.com/NoodleBirb/sopc-edwards',
+    description: 'For my Fall 2026 Compilers class, I was expected to extend a compiler for TOP, to include several new featurse, and had to work through it via careful planning and close knowledge of the compilation pipeline! It was split into several stages, with the first being parsing, but eventually we made it all the way to code generation, allowing us to run our programs using newly added for loops, sequences, and lambdas.',
+    tags: ['Compiler Design', 'Type Checking', 'Memory Safety'],
+    image: '/compilation.png',
+    imageAlt: 'TOP compilation pipeline from ANTLR parsing through frontend processing, type checking and memory safety, to LLVM code generation',
+    imageFit: 'contain',
   },
   {
     title: 'Incremental Haven',
@@ -92,7 +112,7 @@ const projects: {
       <div class="about-copy ruled-panel">
         <h2 id="about-title">About me</h2>
         <p>My name is Ethan Edwards and I've been passionate about Computer Science since middle school! I have a general passion for learning more about how computers can interact with things around me, and I'm always looking for new experiences.</p>
-        <p>Currently, I'm a Computer Science student at the University of Virginia, planning to graduate in May 2028, and I'm learning more every single day!</p>
+        <p>Currently, I'm pursuing a B.A. in Computer Science at the University of Virginia, planning to graduate in May 2028, and I'm learning more every single day!</p>
         <p>Right now, I'm passionate about rock climbing and I love playing games with my friends. I currently climb about V5, but I have a lifelong goal of V13!</p>
       </div>
     </section>
@@ -118,18 +138,23 @@ const projects: {
     </section>
 
     <section id="projects" class="projects section-block" aria-labelledby="projects-title">
-      <h2 id="projects-title" class="section-title">Personal projects</h2>
+      <h2 id="projects-title" class="section-title">Selected projects</h2>
       <div class="projects-grid">
         {projects.map((project) => (
           <article class="project-card">
-            {project.image && (
-              <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
+            {project.image && project.href && (
+              <a class:list={['project-media', { 'is-contain': project.imageFit === 'contain' }]} href={project.href} tabindex="-1" aria-hidden="true">
                 <img src={project.image} alt="" />
               </a>
             )}
+            {project.image && !project.href && (
+              <div class:list={['project-media', { 'is-contain': project.imageFit === 'contain' }]}>
+                <img src={project.image} alt={project.imageAlt ?? ''} />
+              </div>
+            )}
             <div class="project-heading">
               <h3>{project.title}</h3>
-              <a href={project.href} aria-label={`View ${project.title}`}>↗</a>
+              {project.href && <a href={project.href} aria-label={`View ${project.title}`}>↗</a>}
             </div>
             <p>{project.description}</p>
             <div class="tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
@@ -137,6 +162,7 @@ const projects: {
         ))}
       </div>
     </section>
+
   </main>
 
   <footer id="contact" class="site-footer">
